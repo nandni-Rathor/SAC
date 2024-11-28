@@ -1,0 +1,77 @@
+# Hiking Recommendations Chatbot using Azure OpenAI
+
+This project is a conversational chatbot application that provides hiking recommendations using Azure OpenAI. The chatbot takes user input, interprets it with a pre-defined system message, and generates hiking suggestions. If no specific location is provided by the user, the default location is set to Rainier National Park. The chatbot suggests three hikes of varying lengths and shares interesting facts about the local nature.
+
+---
+
+## Features
+- **Interactive Chat**: Users can chat with the bot to receive hiking suggestions.
+- **Default Location**: If no location is mentioned, the bot defaults to Rainier National Park.
+- **Varied Recommendations**: Provides three hike suggestions with varying trail lengths.
+- **Interesting Facts**: Shares a nature-related fact for each recommendation.
+
+---
+
+## Prerequisites
+
+### Install Required Dependencies
+1. Install Python (>=3.8) from [Python Downloads](https://www.python.org/downloads/).
+2. Install required Python libraries:
+    ```bash
+    pip install python-dotenv azure-openai
+    ```
+
+---
+
+## Setup Instructions
+
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/your-username/hiking-recommendations-chatbot.git
+    cd hiking-recommendations-chatbot
+    ```
+
+2. Set up your environment variables in a `.env` file:
+    ```env
+    AZURE_OAI_ENDPOINT="your-azure-endpoint"
+    AZURE_OAI_KEY="your-api-key"
+    AZURE_OAI_DEPLOYMENT="your-deployment-id"
+    ```
+
+3. Run the application:
+    ```bash
+    python app.py
+    ```
+
+---
+
+## How to Use
+
+1. Start the application using the instructions above.
+2. Enter a prompt describing your hiking needs or preferences.
+    - Example: `Suggest hikes near Seattle.`
+3. If no location is mentioned, the bot will suggest hikes near Rainier National Park.
+4. Type `quit` to exit the chatbot.
+
+---
+
+## Code Structure
+- **env-file**: Stores sensitive configuration settings (API keys and endpoint details).
+- **app.py**: Contains the chatbot logic.
+- **requirements.txt**: Lists Python dependencies.
+
+---
+
+## Example Interaction
+
+```plaintext
+Enter the prompt (or type 'quit' to exit): Suggest a family-friendly hike near Denver.
+
+Sending request for summary to Azure OpenAI endpoint...
+
+Summary: 
+1. **Hike Name 1**: A gentle trail suitable for all ages, offering scenic views of Denver's foothills. Distance: 2 miles.
+2. **Hike Name 2**: A moderate hike with a gradual incline leading to a beautiful waterfall. Distance: 5 miles.
+3. **Hike Name 3**: A challenging but rewarding hike with panoramic mountain views. Distance: 10 miles.
+
+Fun Fact: Denver's trails are home to over 700 species of plants, making them a botanist's delight!
