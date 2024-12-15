@@ -1,0 +1,61 @@
+README for Speech Recognition and Synthesis Script
+Overview
+This Python script integrates Azure Cognitive Services to perform speech recognition and speech synthesis. It listens to user input, recognizes the spoken command, and provides an audio response. The script demonstrates how to configure Azure's Speech Service to transcribe a question and respond by telling the current time.
+
+Features
+Speech Recognition: Processes audio input and converts spoken words into text.
+Speech Synthesis: Converts text responses into synthesized speech for playback.
+Time Query: Responds to the spoken query "What time is it?" by announcing the current time.
+Prerequisites
+Python Version: Python 3.8 or higher.
+Required Libraries:
+Install dependencies using:
+bash
+Copy code
+pip install azure-cognitiveservices-speech python-dotenv playsound
+Azure Speech Service:
+Set up an Azure Speech resource and obtain the SPEECH_KEY and SPEECH_REGION.
+Audio File:
+Place an audio file named time.wav in the script's directory. This file is used to simulate speech input.
+Setup
+Environment Configuration:
+
+Create a .env file in the same directory as the script and include the following keys:
+plaintext
+Copy code
+SPEECH_KEY="your-speech-key"
+SPEECH_REGION="your-region"
+Replace placeholders with actual values from your Azure Speech resource.
+Run the Script:
+
+Save the code as speech_service.py.
+Execute the script using:
+bash
+Copy code
+python speech_service.py
+How It Works
+Speech Input:
+The script plays an audio file (time.wav) prompting the user to speak.
+It processes the spoken input using Azure's Speech Recognition.
+Command Handling:
+If the recognized command is "What time is it?", the script provides the current time.
+Speech Synthesis:
+The response text (current time) is synthesized into speech using a neural voice (en-GB-RyanNeural).
+The synthesized audio is played, and the response is printed on the console.
+Error Handling
+Configuration Errors: Ensures the environment variables (SPEECH_KEY, SPEECH_REGION) are loaded correctly.
+Recognition Issues: Handles cases where speech is not recognized or the input audio is invalid.
+Synthesis Failures: Detects and reports errors during speech synthesis.
+Customization
+Input Audio:
+Replace time.wav with another audio file for different spoken inputs.
+Response Text:
+Modify the TellTime function to include additional information or responses.
+Voice Selection:
+Update speech_config.speech_synthesis_voice_name to use different Azure neural voices.
+Contribution
+Feel free to enhance the script by:
+
+Adding support for multiple commands.
+Integrating real-time microphone input instead of pre-recorded audio files.
+Building a GUI or chatbot interface for a better user experience.
