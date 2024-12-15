@@ -1,0 +1,66 @@
+README for Azure OpenAI with Custom Data Integration Script
+Overview
+This Python script integrates Azure OpenAI with Azure Cognitive Search to create a custom data-powered conversational system. The script allows users to query a search index, retrieve relevant data, and generate responses enriched by OpenAI's GPT model. It demonstrates how to connect Azure services to build intelligent and context-aware solutions.
+
+Features
+Custom Data Query: Integrates Azure Cognitive Search to retrieve data from a configured search index.
+OpenAI Response Generation: Uses Azure OpenAI to generate natural language responses based on user queries and search results.
+Dynamic Citations: (Optional) Displays citations from the search results to enhance response credibility.
+Configurable Roles: Sets up the model to behave as a helpful travel agent or other roles depending on the system message.
+Prerequisites
+Python Version: Python 3.8 or higher.
+Required Libraries:
+Install the required libraries:
+bash
+Copy code
+pip install openai python-dotenv
+Azure Services:
+Azure OpenAI Resource: Obtain the endpoint, key, and deployment name for GPT-3.5 or GPT-4.
+Azure Cognitive Search: Configure a search index and obtain the endpoint, key, and index name.
+Setup
+Environment Configuration:
+
+Create a .env file in the script's directory with the following content:
+plaintext
+Copy code
+AZURE_OAI_ENDPOINT=https://your-resource-name.openai.azure.com
+AZURE_OAI_KEY=your-openai-key
+AZURE_OAI_DEPLOYMENT=your-deployment-name
+AZURE_SEARCH_ENDPOINT=https://your-search-service-name.search.windows.net
+AZURE_SEARCH_KEY=your-search-key
+AZURE_SEARCH_INDEX=your-search-index
+Replace the placeholders with actual values from your Azure resources.
+Run the Script:
+
+Save the code as custom_data_agent.py.
+Execute the script using:
+bash
+Copy code
+python custom_data_agent.py
+How It Works
+Dynamic Query:
+The script prompts the user to enter a question (e.g., "What are the best places to visit in Paris?").
+Data Retrieval:
+Configures Azure Cognitive Search to retrieve data from the specified index.
+Combines search results with the GPT model to provide enriched responses.
+Response Generation:
+Azure OpenAI generates responses based on the query, system prompt, and retrieved data.
+Citations:
+If enabled (show_citations = True), displays citations for the data used in generating the response.
+Customization
+System Role:
+Modify the system message in the messages list to change the assistant's role (e.g., travel agent, tutor, etc.).
+Search Index:
+Update the .env file to point to a different Azure Cognitive Search index.
+Response Parameters:
+Adjust temperature and max_tokens in the client.chat.completions.create call to control creativity and response length.
+Error Handling
+Environment Variable Issues: Ensures all necessary variables are loaded from the .env file.
+API Errors: Catches exceptions related to Azure OpenAI or Cognitive Search requests.
+Invalid User Input: Handles empty or invalid queries gracefully.
+Contribution
+Enhancements to the script are welcome! Potential improvements include:
+
+Adding support for multi-turn conversations.
+Enabling real-time citation links in responses.
+Expanding the assistant's capabilities with other Azure services (e.g., Translator, Form Recognizer).
