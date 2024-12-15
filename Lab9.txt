@@ -1,0 +1,71 @@
+README for Azure OpenAI Prompt Engineering Script
+Overview
+This Python script demonstrates the use of Azure OpenAI Services for prompt engineering by utilizing the GPT-35 model. It allows users to experiment with system prompts and user inputs dynamically. The script enables sending structured requests to the Azure OpenAI API, generating responses based on specified instructions, and printing the results in real-time.
+
+Features
+Dynamic Prompt Engineering: Allows users to modify the system prompt (system.txt) and experiment with different user inputs.
+Azure OpenAI Integration: Connects to the Azure OpenAI GPT-35 model for generating contextual responses.
+Asynchronous Operations: Uses Python's asyncio for efficient handling of API requests.
+Configurable Parameters: Supports options for adjusting response temperature and maximum token limits.
+Detailed Response Logging: Optionally prints the full API response for debugging or analysis.
+Prerequisites
+Python Version: Python 3.8 or higher.
+Required Libraries:
+Install dependencies using:
+bash
+Copy code
+pip install python-dotenv openai
+Azure OpenAI Resource:
+Set up an Azure OpenAI resource and obtain the endpoint, key, and deployment name.
+Ensure your deployment supports the GPT-35 or GPT-4 models.
+Setup
+Environment Configuration:
+
+Create a .env file in the same directory as the script with the following content:
+plaintext
+Copy code
+AZURE_OAI_ENDPOINT="your-azure-endpoint"
+AZURE_OAI_KEY="your-api-key"
+AZURE_OAI_DEPLOYMENT="your-deployment-name"
+Replace the placeholders with actual values from your Azure OpenAI resource.
+System Prompt File:
+
+Create a system.txt file in the same directory. This file should contain the system message used to set the model's behavior. For example:
+plaintext
+Copy code
+You are a helpful assistant that provides concise and accurate answers.
+Run the Script:
+
+Save the code as prompt_engineering.py.
+Execute the script using:
+bash
+Copy code
+python prompt_engineering.py
+How It Works
+Dynamic Prompts:
+Modify the system behavior by editing the system.txt file.
+Input user messages dynamically during execution.
+Interaction:
+The script pauses to allow changes to the system prompt and resumes on pressing Enter.
+It then sends the updated prompt and user message to the Azure OpenAI model.
+Response Handling:
+The script prints the model's response to the console.
+Optionally logs the full response if printFullResponse is set to True.
+Customization
+Adjust Parameters:
+Modify temperature and max_tokens in the call_openai_model function to control response creativity and length.
+Logging:
+Enable printFullResponse to view detailed API responses.
+Expand Functionality:
+Add support for multi-turn conversations by maintaining a list of messages.
+Integrate with GUI or web interfaces for a user-friendly experience.
+Error Handling
+Configuration Issues: Verifies .env file and system prompt file existence.
+API Errors: Catches and logs exceptions related to API calls.
+Invalid Inputs: Handles invalid or missing user inputs gracefully.
+Contribution
+Contributions are welcome to enhance this script by:
+
+Adding multi-turn dialogue support.
+Integrating advanced prompt engineering techniques.
+Optimizing for specific use cases like summarization, question-answering, or creative writing.
