@@ -1,0 +1,59 @@
+README for Question Answering Solution Script
+Overview
+This script demonstrates the integration of Azure's Question Answering Service to create an interactive Question Answering (QA) solution. It queries a preconfigured QA project hosted on Azure, processes user-submitted questions, and returns relevant answers with confidence scores and source details.
+
+Features
+Azure Integration: Leverages Azure AI's Question Answering capabilities.
+Interactive Q&A: Accepts user input dynamically and provides immediate responses.
+Detailed Output: Returns answers along with confidence scores and source details for transparency.
+Configurable Project: Supports custom QA projects and deployments.
+Prerequisites
+Python Version: Python 3.8 or higher.
+Required Libraries:
+Install the dependencies using:
+bash
+Copy code
+pip install azure-ai-language-questionanswering python-dotenv
+Azure Language Service:
+Set up a Question Answering resource on Azure.
+Configure a knowledge base and obtain the endpoint and key.
+Setup
+Environment Configuration:
+
+Create a .env file in the same directory as the script with the following keys:
+plaintext
+Copy code
+AI_SERVICE_ENDPOINT="your-azure-endpoint"
+AI_SERVICE_KEY="your-azure-key"
+QA_PROJECT_NAME="your-project-name"
+QA_DEPLOYMENT_NAME="your-deployment-name"
+Replace placeholders with actual values from your Azure resource.
+Run the Script:
+
+Save the code as qa_solution.py.
+Execute it using:
+bash
+Copy code
+python qa_solution.py
+How to Use
+Interactive Mode:
+After launching, type a question when prompted.
+The script will query the Azure QA service and return:
+Answer: The most relevant response.
+Confidence: A score indicating how confident the model is about the answer.
+Source: The document or knowledge base from which the answer was derived.
+Exit: Type quit to stop the script.
+Error Handling
+Configuration Errors: Ensures environment variables are loaded correctly.
+Service Issues: Catches exceptions if the Azure service fails or credentials are incorrect.
+Input Validation: Prevents crashes due to empty or invalid questions.
+Customization
+Update the .env file to connect to a different project or deployment.
+Enhance the script to handle multiple languages or incorporate advanced response filtering.
+Integrate the script into a web application or chatbot for broader usability.
+Contribution
+Contributions to improve the script are welcome! Ideas for enhancement include:
+
+Adding multi-language support.
+Integrating with other Azure Cognitive Services like Speech-to-Text for voice interaction.
+Building a user-friendly interface for non-technical users.
