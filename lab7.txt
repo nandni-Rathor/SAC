@@ -1,0 +1,41 @@
+urce:
+
+Create an Azure Language Service and configure a Question Answering project with a knowledge base.
+Obtain the endpoint and key for the Azure service.
+Setup
+Environment Variables:
+
+Create a .env file in the script's directory with the following structure:
+plaintext
+Copy code
+AI_SERVICE_ENDPOINT="your-azure-endpoint"
+AI_SERVICE_KEY="your-azure-key"
+QA_PROJECT_NAME="your-project-name"
+QA_DEPLOYMENT_NAME="your-deployment-name"
+Replace the placeholders with actual values from your Azure setup.
+Run the Script:
+
+Execute the script using:
+bash
+Copy code
+python lap7.py
+How to Use
+After running the script, type a question when prompted.
+The script queries the configured Question Answering service and provides:
+Answer: The most relevant response.
+Confidence: A score indicating the model's confidence in the response.
+Source: The knowledge base or document from which the answer was derived.
+To exit, type quit.
+Error Handling
+Configuration Issues: Handles missing or invalid environment variables gracefully.
+Invalid Inputs: Ensures the user provides valid questions.
+Service Errors: Catches and displays errors from the Azure Question Answering service.
+Customization
+Modify the .env file to connect to a different Question Answering project.
+Extend the script to include additional features like logging or advanced filtering of answers.
+Contribution
+This script is open for improvements. You can contribute by:
+
+Enhancing user interaction (e.g., GUI or web integration).
+Adding support for multiple knowledge bases.
+Optimizing error handling and logging mechanisms.
